@@ -15,19 +15,19 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "First_Name")
+	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name = "LastName")
+	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name = "MobileNumber")
+	@Column(name = "mobile_number")
 	private String mobileNumber;
 
-	@Column(name = "Address")
+	@Column(name = "address")
 	private String address;
 
-	@Column(name = "City")
+	@Column(name = "city")
 	private String city;
 
 	public Employee() {
