@@ -1,6 +1,8 @@
 package com.baghel.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +42,15 @@ public class EmployeeService {
 		employee.setAddress(employee.getAddress());
 		Employee updatedEmployee = employeeRepository.save(employee);
 		return updatedEmployee;
+	}
+
+	public Map<String,Boolean> deleteEmployee(Long id, Employee employee) {
+		Employee employeeObj = employeeRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist by id:" +id));
+		employeeRepository.delete(employeeObj);
+		Map<String, Boolean> response= new HashMap<>();
+		response.put("Deleted", Boolean.TRUE);
+		return response;
 	}
 	
 	
